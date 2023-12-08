@@ -155,4 +155,9 @@ body {
     }
  }
 
- 
+
+ .container h1 {
+    font-size: clamp(2.5rem, 1.444rem + 4.507vw, 5.5rem);
+ }
+
+
