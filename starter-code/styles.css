@@ -77,9 +77,18 @@ select {
   font: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
 /* utility classes  */
 
-.text-neutral-400 {
+.text-neutral-100 {
   color: var(--clr-neutral-100);
 }
 
@@ -102,6 +111,22 @@ select {
 }
 .fw-medium {
   font-weight: var(--fw-medium);
+}
+
+.fs-300-400 {
+  font-size: clamp(1rem, 0.912rem + 0.376vw, 1.25rem);
+}
+
+.fs-500-600 {
+  font-size: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);
+}
+
+.fs-600-700 {
+  font-size: clamp(2rem, 1.648rem + 1.502vw, 3rem);
+}
+
+.fs-650-900 {
+  font-size: clamp(2.5rem, 1.444rem + 4.507vw, 5.5rem);
 }
 
 .fs-300 {
@@ -143,23 +168,81 @@ select {
 body {
   font-size: var(--fs-400);
   font-family: var(--ff-body);
-  color: var(--clr-neutral-100); /*  heading color */
+  color: var(
+    --clr-accent-100
+  ); /* body color from figma file leftmost design system */
   background-color: var(--clr-primary-400);
 }
 
+.primary-header {
+    margin-top: 1.25rem;
+}
 
-.container h1 {
-    font-size: clamp(2.5rem, 1.444rem + 4.507vw, 5.5rem);
- }
+/* .primary-header .container {
+    margin-bottom: 30rem;
+} */
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  max-width: 9.62463rem;
+  width: 100%;
+  margin-inline: auto;
+
+}
+
+.name {
+  text-align: center;
+  line-height: 2rem; /* 133.333% */
+  letter-spacing: -0.02081rem;
+  margin-bottom: 1.25rem;
+}
+
+/* clamp calculation used for min-width of 375px and max-width of 1440px */
+
+.profile-picture, .header-profile-picture {
+  width: clamp(10.8879375rem, 4.9313rem + 25.415vw, 27.80475rem);
+  content: url("assets/images/image-profile-mobile.webp");
+  margin-inline: auto;
+}
+
+.header-profile-picture {
+    position: absolute;
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-picture {
+    display: none;
+}
+
+.project img {
+  width: clamp(21.5625rem, 17.27109rem + 18.31vw, 33.75rem);
+}
+
+/* .project-1 {
+    content: url("assets/images/thumbnail-project-1-small.webp")
+} */
 
 /* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    .container {
-        --padding: 2rem;
-        width: min(var(--max-width), 100% - (--padding * 2));
-    }
- }
+@media (min-width: 768px) {
+  .container {
+    --padding: 2rem;
+    width: min(var(--max-width), 100% - (--padding * 2));
+  }
+  .profile-picture {
+    content: url("assets/images/image-profile-tablet.webp");
+  }
+}
 
-
-
-
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 1024px) {
+  .profile-picture {
+    content: url("assets/images/image-profile-desktop.webp");
+  }
+  /* clam takes care of this so i dont need to change img src */
+  /* .project-1 {
+    content: url("assets/images/thumbnail-project-1-large.webp")
+} */
+}
