@@ -155,13 +155,40 @@ ol[role="list"] {
   font-size: var(--fs-900);
 }
 
-.container {
+.container,
+hr {
   --max-width: 69.375rem;
   --padding: 1rem;
   /* --padding: 2rem; for tablet */
   width: min(var(--max-width), 100% - (var(--padding) * 2));
   margin-inline: auto;
 }
+
+
+
+.underline {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+  }
+  .underline:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: -5px;
+    background: var(--Green, #4ee1a0);
+    height: 4px;
+    transition-property: left right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  .underline:hover:after,
+  .underline:focus:after,
+  .underline:active:after {
+    right: 0;
+  }
 
 /* general styling */
 
@@ -174,25 +201,23 @@ body {
   background-color: var(--clr-primary-400);
 }
 
-.primary-header {
-    margin-top: 1.25rem;
+.primary-header .container {
+    margin-bottom: 5.75rem;
 }
 
-/* .primary-header .container {
-    margin-bottom: 30rem;
-} */
+.primary-header {
+  margin-top: 1.25rem;
+  text-align: center;
+}
 
 .nav-list {
   display: flex;
   justify-content: space-between;
-  max-width: 9.62463rem;
-  width: 100%;
+  width: 9.62463rem;
   margin-inline: auto;
-
 }
 
 .name {
-  text-align: center;
   line-height: 2rem; /* 133.333% */
   letter-spacing: -0.02081rem;
   margin-bottom: 1.25rem;
@@ -200,49 +225,123 @@ body {
 
 /* clamp calculation used for min-width of 375px and max-width of 1440px */
 
-.profile-picture, .header-profile-picture {
-  width: clamp(10.8879375rem, 4.9313rem + 25.415vw, 27.80475rem);
+.profile-picture,
+.header-profile-picture {
+  width: clamp(10.8879375rem, 4.9313rem + 25.415vw, 27.8125rem);
   content: url("assets/images/image-profile-mobile.webp");
   margin-inline: auto;
 }
 
-.header-profile-picture {
-    position: absolute;
-    top: 0; 
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .profile-picture {
-    display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
 }
 
-.project img {
-  width: clamp(21.5625rem, 17.27109rem + 18.31vw, 33.75rem);
+
+
+.hero-text {
+  margin-bottom: 5.75rem;
 }
+
+.hero-header {
+  line-height: 2.5rem; /* 100% */
+  letter-spacing: -0.071rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.hero-paragraph {
+  line-height: 1.625rem; /* 162.5% */
+  margin-bottom: 1.5rem;
+}
+
+.hero-btn {
+  width: 7.5rem;
+  margin-inline: auto;
+  border: none;
+  background: none;
+}
+
+/* hero-btn stays the same through all screen sizes */
 
 /* .project-1 {
     content: url("assets/images/thumbnail-project-1-small.webp")
 } */
 
-/* // Medium devices (tablets, 768px and up) */
+/* // Medium devices (tablets, 768px and up) for header ONLY*/
 @media (min-width: 768px) {
-  .container {
+  .container,
+  hr {
     --padding: 2rem;
-    width: min(var(--max-width), 100% - (--padding * 2));
+  }
+  .primary-header .container {
+    margin-bottom: 4.5rem;
+}
+  .primary-header {
+    text-align: left;
   }
   .profile-picture {
     content: url("assets/images/image-profile-tablet.webp");
+    left: 100%;
+    transform: translateX(-100%);
   }
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5.63rem;
+  }
+  .nav-list {
+    width: 12.03075rem;
+  }
+  .hero-text {
+    max-width: 27.6875rem;
+    margin-bottom: 4.13rem;
+  }
+  .hero-header {
+    line-height: 4.5rem; /* 100% */
+    letter-spacing: -0.12781rem;
+  }
+  .hero-paragraph {
+    line-height: 1.75rem; /* 155.556% */
+  }
+
+  /* .hero-paragraph stays the same between tablet and desktop */
 }
 
-/* // Large devices (desktops, 992px and up) */
+/* // Large devices (desktops, 992px and up) or 1024px */
 @media (min-width: 1024px) {
   .profile-picture {
     content: url("assets/images/image-profile-desktop.webp");
+    left: 89.1%;
   }
+
   /* clam takes care of this so i dont need to change img src */
   /* .project-1 {
     content: url("assets/images/thumbnail-project-1-large.webp")
 } */
+
+.primary-header .container {
+    margin-bottom: 14.44rem;
 }
+  .flex {
+    margin-bottom: 7.94rem;
+  }
+  .hero-text {
+    max-width: 40.125rem;
+    margin-bottom: 2.69rem;
+  }
+  .hero-header {
+    line-height: 5.5rem; /* 100% */
+    letter-spacing: -0.15625rem;
+  }
+
+}
+
+
+/* .project img {
+  width: clamp(21.5625rem, 17.27109rem + 18.31vw, 33.75rem);
+} */
