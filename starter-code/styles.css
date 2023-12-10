@@ -164,7 +164,7 @@ hr {
   margin-inline: auto;
 }
 
-
+/* 
 
 .underline {
     display: inline;
@@ -188,7 +188,37 @@ hr {
   .underline:focus:after,
   .underline:active:after {
     right: 0;
-  }
+  } */
+
+/* Define the initial style for the text */
+.underline-text {
+  position: relative;
+  display: inline-block;
+  text-decoration: none; /* Remove default underline */
+  transition: color 0.5s ease, transform 0.5s ease; /* Add smooth color and transform transitions */
+}
+
+/* Add a pseudo-element for the underline effect */
+.underline-text::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--clr-accent-400);
+  transform: scaleX(
+    0
+  ); /* Initially, set the scale to 0 for the underline effect */
+  transform-origin: bottom right;
+  transition: transform 3s ease; /* Add a smooth transform transition */
+}
+
+/* Add a class to underline the text when it's in the viewport */
+.underlined::before {
+  transform: scaleX(1); /* Set the scale to 1 to reveal the underline */
+  transform-origin: bottom left;
+}
 
 /* general styling */
 
@@ -202,7 +232,7 @@ body {
 }
 
 .primary-header .container {
-    margin-bottom: 5.75rem;
+  margin-bottom: 5.75rem;
 }
 
 .primary-header {
@@ -240,8 +270,6 @@ body {
   z-index: -1;
 }
 
-
-
 .hero-text {
   margin-bottom: 5.75rem;
 }
@@ -253,7 +281,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-
 .hero-paragraph {
   line-height: 1.625rem; /* 162.5% */
   margin-bottom: 1.5rem;
@@ -264,6 +291,9 @@ body {
   margin-inline: auto;
   border: none;
   background: none;
+  text-transform: uppercase;
+  line-height: 1.625rem; /* 162.5% */
+  letter-spacing: 0.14288rem;
 }
 
 /* hero-btn stays the same through all screen sizes */
@@ -280,7 +310,7 @@ body {
   }
   .primary-header .container {
     margin-bottom: 4.5rem;
-}
+  }
   .primary-header {
     text-align: left;
   }
@@ -324,9 +354,9 @@ body {
     content: url("assets/images/thumbnail-project-1-large.webp")
 } */
 
-.primary-header .container {
+  .primary-header .container {
     margin-bottom: 14.44rem;
-}
+  }
   .flex {
     margin-bottom: 7.94rem;
   }
@@ -338,9 +368,7 @@ body {
     line-height: 5.5rem; /* 100% */
     letter-spacing: -0.15625rem;
   }
-
 }
-
 
 /* .project img {
   width: clamp(21.5625rem, 17.27109rem + 18.31vw, 33.75rem);
