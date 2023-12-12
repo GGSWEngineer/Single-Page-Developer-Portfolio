@@ -451,19 +451,20 @@ body {
 }
 
 .projects-container {
-    --column-count: 1
-    display: grid;
+  --column-count: 1;
+  display: grid;
   grid-template-columns: repeat(var(--column-count), 1fr);
 }
 
 .project {
-    display: inline-block;
+  display: inline-block;
+  margin-inline: auto;
 }
 
 .project img {
-    width: 21.5625rem;
+  /* width: 21.5625rem; */
+  width: clamp(21.5625rem, 7.6339rem + 29.0179vw, 33.75rem);
 }
-
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -471,9 +472,80 @@ body {
     margin-top: 0;
   } /* the container above takes care of the margin-bottom */
   .projects-container {
-    --column-count: 2
+    --column-count: 2;
+  }
+  .project img {
+    width: clamp(21.5625rem, 7.6339rem + 29.0179vw, 33.75rem);
+  }
 }
-.project img {
- width: clamp(21.5625rem, 7.6339rem + 29.0179vw, 33.75rem);
+
+/* footer */
+
+footer .container {
+  max-width: 27.8125rem;
+  padding-top: 3.75rem; /* complete with media query */
 }
+
+.footer-header-container {
+  margin-bottom: clamp(3.13rem, 3.3408rem + -0.7099vw, 3rem);
+  text-align: center;
+}
+
+.contact-header {
+  margin-bottom: 1.25rem;
+  line-height: clamp(2.5rem, 1.444rem + 4.507vw, 5.5rem); /* done 375 to 1440 */
+  letter-spacing: clamp(
+    -0.071rem,
+    0.0103rem + -0.3471vw,
+    -0.15625rem
+  ); /* done 375 to 1440 */
+}
+
+.footer-header-container p {
+  line-height: clamp(
+    1.625rem,
+    1.5057rem + 0.5089vw,
+    1.75rem
+  ); /* done 375 to 768 */
+  /* no letter spacing */
+}
+
+form input,
+form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+  border: none;
+  border-bottom: 0.0625rem solid var(--clr-neutral-100);
+  line-height: 1.625rem; /* 162.5% */
+  letter-spacing: -0.01388rem;
+}
+
+@media (min-width: 768px) {
+  footer .container {
+    padding-top: clamp(3.75rem, 2.0357rem + 3.5714vw, 5.25rem);
+  }
+  .contact-header {
+    margin-bottom: clamp(1.25rem, 0.1071rem + 2.381vw, 2.25rem); /* stays stagnant till 768px and grows from here */
+  }
+}
+
+@media (min-width: 1024px) {
+    footer .container {
+        max-width: none;
+    }
+
+    .footer-header-container {
+        max-width: 27.8125rem;
+        text-align: left;
+    }
+    .flex-group {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* footer form {
+        max-width:  27.8125rem;
+    } */
 }
