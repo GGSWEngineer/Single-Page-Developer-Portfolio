@@ -248,7 +248,7 @@ body {
 }
 
 .name {
-  line-height: 2rem; /* 133.333% */
+  line-height: 2rem; /* 133.333% doesn't change through figma file*/
   letter-spacing: -0.02081rem;
   margin-bottom: 1.25rem;
 }
@@ -275,20 +275,24 @@ body {
 }
 
 .hero-header {
-  line-height: 2.5rem; /* 100% */
+  line-height: clamp(2.5rem, 1.4437rem + 4.507vw, 5.5rem); /* 100% */
   letter-spacing: -0.071rem;
-  margin-top: 2.5rem;
+  margin-top: clamp(20.5rem, 8.09547rem + 52.926vw, 33.5rem);
   margin-bottom: 1.5rem;
 }
 
 .hero-paragraph {
-  line-height: 1.625rem; /* 162.5% */
+  line-height: clamp(
+    1.625rem,
+    1.5057rem + 0.5089vw,
+    1.75rem
+  ); /* from 375px to 768px */
   margin-bottom: 1.5rem;
 }
 
 .hero-btn {
   width: 7.5rem;
-  margin-inline: auto;
+  /* margin-inline: auto; */
   border: none;
   background: none;
   text-transform: uppercase;
@@ -332,11 +336,8 @@ body {
     margin-bottom: 4.13rem;
   }
   .hero-header {
-    line-height: 4.5rem; /* 100% */
+    margin-top: 0;
     letter-spacing: -0.12781rem;
-  }
-  .hero-paragraph {
-    line-height: 1.75rem; /* 155.556% */
   }
 
   /* .hero-paragraph stays the same between tablet and desktop */
@@ -349,10 +350,13 @@ body {
     left: 89.1%;
   }
 
-  /* clam takes care of this so i dont need to change img src */
+  /* clamp takes care of size so i dont need to change img src */
   /* .project-1 {
     content: url("assets/images/thumbnail-project-1-large.webp")
 } */
+  .nav-list {
+    margin-right: 1.84rem;
+  }
 
   .primary-header .container {
     margin-bottom: 14.44rem;
@@ -365,7 +369,6 @@ body {
     margin-bottom: 2.69rem;
   }
   .hero-header {
-    line-height: 5.5rem; /* 100% */
     letter-spacing: -0.15625rem;
   }
 }
@@ -373,3 +376,104 @@ body {
 /* .project img {
   width: clamp(21.5625rem, 17.27109rem + 18.31vw, 33.75rem);
 } */
+
+/* first section of main */
+
+.programming-languages .container {
+  --column-count: 1;
+  text-align: center;
+  margin-top: clamp(2.5rem, 1.7958rem + 3.0047vw, 4.5rem); /* 375px to 1440px */
+  margin-bottom: clamp(
+    2.5rem,
+    1.7958rem + 3.0047vw,
+    4.5rem
+  ); /* to the horizontal line */
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+}
+
+.programming-language {
+  margin-bottom: clamp(1.5rem, -0.5324rem + 8.6718vw, 3.63rem); /*375 to 1440 */
+}
+
+.programming-language:last-child {
+  margin-bottom: 0;
+}
+
+.programming-language h2 {
+  margin-bottom: clamp(
+    0.06rem,
+    -0.7129rem + 3.2977vw,
+    0.87rem
+  ); /* 375px to 768px */
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .programming-languages .container {
+    --column-count: 2;
+    text-align: left;
+    margin-bottom: clamp(
+      6.25rem,
+      3.3929rem + 5.9524vw,
+      8.75rem
+    ); /*768 to 1440 */
+  }
+  .horizontal {
+    display: none;
+  }
+}
+
+/* 
+ // Large devices (desktops, 992px and up or 1024px) */
+@media (min-width: 1024px) {
+  .programming-languages .container {
+    --column-count: 3;
+  }
+}
+
+/* projects section */
+
+.projects .container {
+  margin-top: 5rem;
+  margin-bottom: clamp(5rem, 3.7007rem + 5.5437vw, 8.69rem); /* 375 to 1440 */
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: clamp(2.5rem, 1.6197rem + 3.7559vw, 5rem);
+}
+
+.hero-btn.projects-btn {
+  align-self: baseline;
+  margin-left: auto;
+}
+
+.projects-container {
+    --column-count: 1
+    display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+}
+
+.project {
+    display: inline-block;
+}
+
+.project img {
+    width: 21.5625rem;
+}
+
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .projects .container {
+    margin-top: 0;
+  } /* the container above takes care of the margin-bottom */
+  .projects-container {
+    --column-count: 2
+}
+.project img {
+ width: clamp(21.5625rem, 7.6339rem + 29.0179vw, 33.75rem);
+}
+}
