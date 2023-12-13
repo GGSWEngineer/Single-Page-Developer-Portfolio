@@ -291,13 +291,16 @@ body {
 }
 
 .hero-btn {
-  width: 7.5rem;
+  /* width: 7.5rem; */
+  /* width: 100%; */
+  display: inline-block;
   /* margin-inline: auto; */
   border: none;
   background: none;
   text-transform: uppercase;
   line-height: 1.625rem; /* 162.5% */
   letter-spacing: 0.14288rem;
+  white-space: nowrap;
 }
 
 /* hero-btn stays the same through all screen sizes */
@@ -481,9 +484,10 @@ body {
 
 /* footer */
 
-footer .container {
-  max-width: 27.8125rem;
+footer > .container {
+  /* max-width: 27.8125rem; */
   padding-top: 3.75rem; /* complete with media query */
+  padding-bottom: 3.75rem;
 }
 
 .footer-header-container {
@@ -499,6 +503,29 @@ footer .container {
     0.0103rem + -0.3471vw,
     -0.15625rem
   ); /* done 375 to 1440 */
+}
+
+.flex-group {
+  margin-bottom: clamp(
+    6.19rem,
+    5.8942rem + 1.2621vw,
+    6.5rem
+  ); /* 375px to 768px */
+}
+
+footer .flex-group {
+  max-width: 27.8125rem;
+  margin-inline: auto;
+}
+
+.footer-nav .container {
+  margin-inline: 0;
+  width: 100%;
+}
+
+.footer-nav > .container > .flex {
+  margin-top: 2.44rem;
+  margin-bottom: 0;
 }
 
 .footer-header-container p {
@@ -521,31 +548,68 @@ form textarea {
   border-bottom: 0.0625rem solid var(--clr-neutral-100);
   line-height: 1.625rem; /* 162.5% */
   letter-spacing: -0.01388rem;
+  text-transform: uppercase;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+}
+
+form textarea {
+  height: 6.6875rem;
+}
+
+footer .hero-btn {
+  display: block;
+  margin-left: auto;
+}
+
+.footer-nav {
+  border-top: 0.0625rem solid var(--clr-neutral-100);
+  text-align: center;
 }
 
 @media (min-width: 768px) {
-  footer .container {
+  footer > .container {
     padding-top: clamp(3.75rem, 2.0357rem + 3.5714vw, 5.25rem);
+    padding-bottom: clamp(2.5rem, -7.25rem + 20.3125vw, 5.75rem);
   }
   .contact-header {
-    margin-bottom: clamp(1.25rem, 0.1071rem + 2.381vw, 2.25rem); /* stays stagnant till 768px and grows from here */
+    margin-bottom: clamp(
+      1.25rem,
+      0.1071rem + 2.381vw,
+      2.25rem
+    ); /* stays stagnant till 768px and grows from here */
+  }
+  .footer-nav > .container > .flex {
+     margin-top: clamp(1.88rem, 0.6686rem + 2.5238vw, 2.94rem); /* 768 to 1440px */
   }
 }
 
 @media (min-width: 1024px) {
-    footer .container {
-        max-width: none;
-    }
+  footer .container {
+    max-width: none;
+  }
 
-    .footer-header-container {
-        max-width: 27.8125rem;
-        text-align: left;
-    }
-    .flex-group {
-        display: flex;
-        justify-content: space-between;
-    }
-    /* footer form {
-        max-width:  27.8125rem;
-    } */
+  .footer-header-container {
+    max-width: 27.8125rem;
+    text-align: left;
+  }
+
+  footer .flex-group {
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .flex-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  .flex-group > * {
+    /* flex-grow: 1; */
+    flex: 1;
+  }
+  .flex-group .form-container {
+    max-width: 27.8125rem;
+  }
 }
