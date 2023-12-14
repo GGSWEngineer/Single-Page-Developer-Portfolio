@@ -164,32 +164,6 @@ hr {
   margin-inline: auto;
 }
 
-/* 
-
-.underline {
-    display: inline;
-    position: relative;
-    overflow: hidden;
-  }
-  .underline:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    right: 100%;
-    bottom: -5px;
-    background: var(--Green, #4ee1a0);
-    height: 4px;
-    transition-property: left right;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-out;
-  }
-  .underline:hover:after,
-  .underline:focus:after,
-  .underline:active:after {
-    right: 0;
-  } */
-
 /* Define the initial style for the text */
 .underline-text {
   position: relative;
@@ -411,6 +385,8 @@ body {
   ); /* 375px to 768px */
 }
 
+
+
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .programming-languages .container {
@@ -426,6 +402,7 @@ body {
     display: none;
   }
 }
+
 
 /* 
  // Large devices (desktops, 992px and up or 1024px) */
@@ -453,34 +430,76 @@ body {
   margin-left: auto;
 }
 
-.projects-container {
+/* .projects-container {
   --column-count: 1;
   display: grid;
   grid-template-columns: repeat(var(--column-count), 1fr);
+} */
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .project {
   display: inline-block;
-  margin-inline: auto;
+  /* margin-inline: auto; uncomment this if i go back to grid on my .projects-container */
+  text-transform: uppercase;
+  margin-bottom: clamp(2.5rem, 1.8627rem + 2.7192vw, 4.31rem);
 }
+
+
 
 .project img {
   /* width: 21.5625rem; */
   width: clamp(21.5625rem, 7.6339rem + 29.0179vw, 33.75rem);
+  margin-bottom: 1.25rem;
+  
 }
+
+.project h4 {
+    margin-bottom: .44rem; 
+}
+
+.project-flex-group {
+    display: flex;
+    margin-bottom: 1.25rem;
+}
+
+.project-flex-group > :first-child {
+    margin-right: 1.12rem;
+}
+
+.project-flex-group > :nth-child(2) {
+    margin-right: 1.25rem;
+}
+
+.btn-container > :first-child {
+    margin-right: 2rem;
+}
+
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .projects .container {
     margin-top: 0;
   } /* the container above takes care of the margin-bottom */
-  .projects-container {
+
+  /* .projects-container {
     --column-count: 2;
+  } */
+
+  .projects-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
-  .project img {
+  /* .project img {
     width: clamp(21.5625rem, 7.6339rem + 29.0179vw, 33.75rem);
-  }
+  } */
 }
+
 
 /* footer */
 
