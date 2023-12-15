@@ -358,10 +358,6 @@ body {
   }
 }
 
-/* .project img {
-  width: clamp(21.5625rem, 17.27109rem + 18.31vw, 33.75rem);
-} */
-
 /* first section of main */
 
 .programming-languages .container {
@@ -456,7 +452,6 @@ body {
 
 
 .project img {
-  /* width: 21.5625rem; */
   width: clamp(21.5625rem, 7.6339rem + 29.0179vw, 33.75rem);
   margin-bottom: 1.25rem;
 }
@@ -481,11 +476,6 @@ body {
 .img-and-buttons > .btn-container {
    display: none;
   }
-
-
-/* .btn-container {
-    display: block;
-} */
 
 .btn-container > :first-child {
   margin-right: 2rem;
