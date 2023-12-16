@@ -437,6 +437,8 @@ body {
   grid-template-columns: repeat(var(--column-count), 1fr);
 } */
 
+/* either choose from the grid above or flex bottom */
+
 .projects-container {
   display: flex;
   flex-direction: column;
