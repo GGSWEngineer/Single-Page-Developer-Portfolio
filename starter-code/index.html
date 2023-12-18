@@ -408,29 +408,39 @@
           </div>
           <div class="form-container">
             <form action="">
-              <input
-                type="text"
-                id="name"
-                name="first-name-last-name"
-                placeholder="name"
-                class="bg-accent-300"
-                required
-              />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="email"
-                class="bg-accent-300"
-                required
-              />
-              <textarea
-                id="message"
-                class="bg-accent-300"
-                placeholder="message"
-              ></textarea>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="first-name-last-name"
+                  placeholder="name"
+                  class="bg-accent-300"
+                  required
+                />
+                <div class="error-message name-error-message fw-medium fs-200">Sorry, invalid format here</div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="email"
+                  class="bg-accent-300"
+                  required
+                />
+                <div class="error-message email-error-message fw-medium fs-200">Sorry, invalid format here</div>
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  class="bg-accent-300"
+                  placeholder="message"
+                ></textarea>
+                <div class="error-message message-error-message fw-medium fs-200 text-area-error">Sorry, invalid format here</div>
+              </div>
+
               <button
-                class="hero-btn underline-text fw-bold .fs-300 text-neutral-100"
+                class="btn hero-btn underline-text fw-bold .fs-300 text-neutral-100"
               >
                 Send Message
               </button>
