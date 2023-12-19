@@ -66,8 +66,6 @@ Use this section to recap over some of your major learnings while working throug
 
 
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
 
 
 ### Continued development
