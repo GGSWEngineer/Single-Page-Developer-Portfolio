@@ -7,10 +7,12 @@ This is a solution to the [Single-page developer portfolio challenge on Frontend
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
+  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
+
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
