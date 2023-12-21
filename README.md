@@ -32,16 +32,13 @@ Users should be able to:
 - **Bonus**: Hook the form up so it sends and stores the user's enquiry (you can use a spreadsheet or Airtable to save the enquiries)
 - **Bonus**: Add your own details (image, skills, projects) to replace the ones in the design
 
-### Screenshot
-
-![](./screenshot.jpg)
 
 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/GGSWEngineer/Single-Page-Developer-Portfolio
+- Live Site URL: https://ggswengineer.github.io/Single-Page-Developer-Portfolio/
 
 ## My process
 
